@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "22fcc4ad-b259-43bb-9ba1-47d825c4450f",
+		"name": "MonkTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27625557"
+	},
+	"item": [
+		{
+			"name": "Create Coupon Cart Wise",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"cart-wise\",\r\n  \"discountdetails\": {\r\n    \"discount_percent\": 10\r\n  },\r\n  \"condition\": {\r\n    \"min_cart_value\": 100\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/coupons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Coupon Product Wise",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"product-wise\",\r\n  \"discountdetails\": {\r\n    \"discount_percent\": 15,\r\n    \"product_id\": 2\r\n  },\r\n  \"condition\": {\r\n    \"applicable_product\": 2\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/coupons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Coupon BXGY",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"bxgy\",\r\n  \"discountdetails\": {\r\n    \"buy_products\": [\r\n      {\"product_id\": 1, \"quantity\": 2}\r\n    ],\r\n    \"get_products\": [\r\n      {\"product_id\": 3, \"quantity\": 1}\r\n    ],\r\n    \"repetition_limit\": 2\r\n  },\r\n  \"condition\": {\r\n    \"min_cart_value\": 0\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/coupons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Existing Coupon",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"cart-wise\",\r\n  \"discountdetails\": {\r\n    \"discount_percent\": 20\r\n  },\r\n  \"condition\": {\r\n    \"min_cart_value\": 200\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/coupons/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"coupons",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Coupon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/coupons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Coupon Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "GET http://127.0.0.1:5000/coupons/1",
+					"protocol": "GET http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"coupons",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Applicable Coupon for Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cart\": {\r\n    \"items\": [\r\n      {\"product_id\": 1, \"quantity\": 2, \"price\": 100}\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/applicable-coupons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"applicable-coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply Coupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cart\": {\r\n    \"items\": [\r\n      {\"product_id\": 1, \"quantity\": 3, \"price\": 100},\r\n      {\"product_id\": 3, \"quantity\": 1, \"price\": 50}\r\n    ]\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "POST http://127.0.0.1:5000/apply-coupon/1",
+					"protocol": "POST http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"apply-coupon",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
