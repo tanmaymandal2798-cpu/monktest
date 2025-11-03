@@ -1,0 +1,6 @@
+CREATE TABLE coupons (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    type NVARCHAR(50) NOT NULL,
+    discountdetails NVARCHAR(MAX) NOT NULL,
+    condition NVARCHAR(MAX) NOT NULL
+);
